@@ -1,12 +1,10 @@
 import { useState, useEffect, useCallback } from 'react';
 import { 
-  precacheCoastalTravelData, 
-  getCoastalCacheState,
-  getCachedServiceRequests,
-  CoastalCacheSummary,
   hasFirestorePersistence,
   disableFirestoreNetwork,
   enableFirestoreNetwork,
+  precacheCoastalTravelData,
+  getCachedServiceRequests,
 } from '../lib/firestoreSync';
 import { useAppStore } from '../stores/useAppStore';
 

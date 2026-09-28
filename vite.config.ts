@@ -1,7 +1,7 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 
 export default defineConfig(() => {
   return {
@@ -16,17 +16,30 @@ export default defineConfig(() => {
       watch: process.env.DISABLE_HMR === 'true' ? null : {},
     },
     build: {
-      // The main application bundle is intentionally grouped until route-level lazy loading is introduced.
-      chunkSizeWarningLimit: 900,
+      chunkSizeWarningLimit: 1200,
       rollupOptions: {
         onwarn(warning, warn) {
           if (warning.code === 'INVALID_ANNOTATION') return;
           warn(warning);
         },
         output: {
-          manualChunks: {
-            react: ['react', 'react-dom', 'react-router-dom'],
-            i18n: ['i18next', 'react-i18next'],
+          manualChunks(id) {
+            // Isolate Supabase
+            if (id.includes('node_modules/@supabase')) {
+              return 'supabase';
+            }
+            // Isolate Icon sets
+            if (id.includes('node_modules/lucide-react') || id.includes('node_modules/react-icons')) {
+              return 'ui-icons';
+            }
+            // Isolate i18n
+            if (id.includes('node_modules/i18next') || id.includes('node_modules/react-i18next')) {
+              return 'i18n';
+            }
+            // Group all other packages (including React and Router) in vendor to stop the loop
+            if (id.includes('node_modules/')) {
+              return 'vendor';
+            }
           },
         },
       },
