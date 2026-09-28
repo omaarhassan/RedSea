@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Red Sea Connect | Managed Local Services</title>
+    <meta name="description" content="Tell us what you need. We'll handle the rest. Managed property & maintenance services in Ras Gharib, Hurghada, Safaga, and Red Sea cities." />
+    <meta property="og:title" content="Red Sea Connect | Managed Local Services" />
+    <meta property="og:description" content="Tell us what you need. We'll handle the rest. Managed property & maintenance services in Ras Gharib, Hurghada, Safaga, and Red Sea cities." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0F3966" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Red Sea Connect" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        try {
+          var lang = localStorage.getItem('rsc_preferred_lang') || 'en';
+          var isRtl = lang === 'ar';
+          document.documentElement.setAttribute('dir', isRtl ? 'rtl' : 'ltr');
+          document.documentElement.setAttribute('lang', lang);
+          if (isRtl) {
+            document.documentElement.classList.add('rtl');
+          } else {
+            document.documentElement.classList.add('ltr');
+          }
+        } catch(e) {}
+      })();
+    </script>
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased selection:bg-orange-500 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
